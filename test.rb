@@ -1,25 +1,29 @@
-# Dir["#{__dir__}/scene/*.rb"].each { |f| require f}
-# Dir["#{__dir__}/player/*.rb"].each { |f| require f}
-# Dir["#{__dir__}/weapon/*.rb"].each { |f| require f}
-
-
-require_relative 'scene/base'
-
+require_relative 'weapon/create'
+require_relative 'scene/create'
 require_relative 'creator_director/base'
 
-scence1 = Game::Scene::Base.new('valley', 'spring', 'rabbit')
+
+scence1 = Game::Scene.create('warehouse')
 scence1.loading
-
-
-# scence2 = Game::Scene::Base.new('valley', 'summer', 'rabbit')
-# scence2.loading
 
 p '---------------------------------------------场景加载完毕--------------------------------------------------'
 
+weapon = Game::Weapon.create('gun', 'ak47')
+
+weapon.display
+
+weapon.use
+
+weapon.fire
+
+
+p '-----------------------------------------武器加载完毕----------------------------------------------------'
+
 creator_director = Game::CreatorDirector::Base.new('jack')
 
-player = creator_director.construct('最炫名族风', '加农炮')
+player = creator_director.construct('最炫名族风', weapon)
 
 player.loading
 
-p '---------------------------------------------玩家加载完毕--------------------------------------------------'
+p '---------------------------------------------玩家信息加载完毕--------------------------------------------------'
+

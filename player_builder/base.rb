@@ -7,7 +7,6 @@ module Game
 
       def initialize
         @player = Player::Base.new
-        @body = '开膛手杰克'
       end
 
       def method_missing(meth, *args, &blk)
